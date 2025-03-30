@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: news-app-deployment
+  labels:
+    app: news-app
+spec:
+  replicas: 1  # Initial replica
+  selector:
+    matchLabels:
+      app: news-app
+  template:
+    metadata:
+      labels:
+        app: news-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
+      containers:
+      - name: news-app
+        image: chethan64/news-api-app:v2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 300m
+            memory: 256Mi
