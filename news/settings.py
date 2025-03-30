@@ -77,12 +77,25 @@ WSGI_APPLICATION = 'news.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+# DATABASES = {
+    #'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+  #      'NAME': BASE_DIR / 'db.sqlite3',
+ #   }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb',                  # your PostgreSQL database name
+        'USER': 'chethan',                # your PostgreSQL username
+        'PASSWORD': 'Kishor@7815043604',        # your PostgreSQL password
+        'HOST': 'postgres-service',        # service name in Kubernetes
+        'PORT': '5432',                    # default PostgreSQL port
     }
 }
+
 
 
 # Password validation

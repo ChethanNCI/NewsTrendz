@@ -183,3 +183,10 @@ def advertisement_list(request):
     ads = Advertisement.objects.all()
     serializer = AdvertisementSerializer(ads, many=True)
     return Response(serializer.data)
+
+def music_recommendations(request):
+    # Replace this with your real API URL or local data
+    response = requests.get("https://te26gj7kmc.execute-api.eu-west-1.amazonaws.com/Music_application")
+    songs = response.json()
+    return render(request, "base/music.html", {"songs": songs})
+

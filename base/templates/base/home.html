@@ -2,271 +2,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newz</title>
-    
-    <script src="https://kit.fontawesome.com/6a72a8e32d.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newz</title>
+  <script src="https://kit.fontawesome.com/6a72a8e32d.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-        body {
-            background-color: #121212;
-            color: white;
-        }
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+    }
 
-        .navbar {
-            padding: 10px;
-        }
+    .navbar {
+      padding: 10px;
+    }
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-        .nav-item a {
-            margin-right: 10px;
-        }
+    .nav-item a {
+      margin-right: 10px;
+    }
 
-        .grid-container {
-            margin: 5% 10%;
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 20px;
-        }
+    .grid-container {
+      margin: 5% 5%;
+      display: grid;
+      grid-template-columns: 1fr 2.5fr 1fr;
+      gap: 30px;
+    }
 
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-        }
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        .card {
-            background-color: #1e1e1e;
-            color: white;
-            border: none;
-        }
+    .card {
+      background-color: #1e1e1e;
+      color: white;
+      border: none;
+    }
 
-        .list-group-item {
-            background: transparent;
-            border: none;
-        }
+    .list-group-item {
+      background: transparent;
+      border: none;
+    }
 
-        .list-group-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .list-group-item a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .list-group-item a:hover {
-            color: #f8c291;
-        }
+    .list-group-item a:hover {
+      color: #f8c291;
+    }
 
-        .news-card {
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+    .news-card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
 
-        .news-card:hover {
-            transform: scale(1.02);
-        }
+    .news-card:hover {
+      transform: scale(1.02);
+    }
 
-        .news-card img {
-            border-radius: 10px;
-        }
+    .news-card img {
+      border-radius: 10px;
+    }
 
-        .news-card .card-body {
-            padding: 20px;
-        }
+    .news-card .card-body {
+      padding: 20px;
+    }
 
-        .news-card a {
-            background-color: #f8c291;
-            border-radius: 50px;
-            font-weight: bold;
-        }
+    .news-card a {
+      background-color: #f8c291;
+      border-radius: 50px;
+      font-weight: bold;
+    }
 
-        .news-card a:hover {
-            background-color: #fa8231;
-        }
+    .news-card a:hover {
+      background-color: #fa8231;
+    }
 
-        .ad-section-title {
-            font-size: 24px;
-            margin: 30px 0 10px;
-            text-align: center;
-            color: #f8c291;
-        }
+    .sponsored-ads {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(248, 194, 145, 0.1);
+    }
 
-        .ad-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-        }
+    .sponsored-ads h2 {
+      color: #f8c291;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .ad-card {
-            background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            max-width: 280px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+    .ad-card {
+      background: #2c2c2c;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
 
-        .ad-card:hover {
-            transform: translateY(-5px);
-        }
+    .ad-card:hover {
+      transform: scale(1.03);
+    }
 
-        .ad-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
+    .ad-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
 
-        .ad-content {
-            padding: 15px;
-        }
+    .ad-content {
+      padding: 10px 15px;
+    }
 
-        .ad-content h3 {
-            font-size: 18px;
-            margin: 10px 0 5px;
-            color: #333;
-        }
+    .ad-content h3 {
+      color: #f8c291;
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
 
-        .ad-content p {
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+    .ad-content p {
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #0f172a, #0ea5e9); box-shadow: 0px 4px 10px rgba(14, 165, 233, 0.4);">
-    <div class="container">
-        <a class="navbar-brand text-white fw-bold" href="#" style="font-size: 1.8rem;">
-            <i class="fa-solid fa-newspaper"></i> Newz Tracking
-        </a>
-        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <span class="nav-link text-white fw-bold" style="font-size: 1.1rem; text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6);">
-                            <i class="fa-solid fa-user"></i> Welcome, {{ user.username }}
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn fw-bold px-4 py-2 rounded-pill" href="{% url 'logout' %}" 
-                            style="background-color: #0ea5e9; color: white; transition: 0.3s;">
-                            <i class="fa-solid fa-sign-out-alt"></i> Logout
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="btn fw-bold px-4 py-2 rounded-pill me-2" href="{% url 'login' %}" 
-                            style="background-color: #0ea5e9; color: white; transition: 0.3s;">
-                            <i class="fa-solid fa-sign-in-alt"></i> Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn fw-bold px-4 py-2 rounded-pill" href="{% url 'register' %}" 
-                            style="background-color: #0f172a; color: white; border: 1px solid #0ea5e9; transition: 0.3s;">
-                            <i class="fa-solid fa-user-plus"></i> Signup
-                        </a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="#" style="font-size: 1.8rem;">
+      <i class="fa-solid fa-newspaper"></i> Newz Tracking
+    </a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="nav-link text-white fw-bold" style="font-size: 1.1rem; text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6);">
+            <i class="fa-solid fa-user"></i> Welcome, {{ user.username }}
+          </span>
+        </li>
+        <li class="nav-item">
+          <a class="btn fw-bold px-4 py-2 rounded-pill" href="{% url 'logout' %}" style="background-color: #0ea5e9; color: white; transition: 0.3s;">
+            <i class="fa-solid fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="btn fw-bold px-4 py-2 rounded-pill me-2" href="{% url 'login' %}" style="background-color: #0ea5e9; color: white; transition: 0.3s;">
+            <i class="fa-solid fa-sign-in-alt"></i> Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn fw-bold px-4 py-2 rounded-pill" href="{% url 'register' %}" style="background-color: #0f172a; color: white; border: 1px solid #0ea5e9; transition: 0.3s;">
+            <i class="fa-solid fa-user-plus"></i> Signup
+          </a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
+  </div>
 </nav>
 
+<!-- Grid Layout -->
 <div class="grid-container">
-    <!-- Sidebar -->
-    <div class="grid-item">
-        <div class="card sticky-top rounded-5 p-3" style="width: 18rem;">
-            <div class="card-header m-2 p-3">
-                <h6 class="text-center">Select a category to explore</h6>
-            </div>
-            <ul class="list-group list-group-flush p-3">
-                <li class="list-group-item"><a href="/business"><i class="fa-solid fa-business-time"></i> Business</a></li>
-                <li class="list-group-item"><a href="/entertainment"><i class="fa-solid fa-globe"></i> Entertainment</a></li>
-                <li class="list-group-item"><a href="/general"><i class="fa-solid fa-earth-americas"></i> General</a></li>
-                <li class="list-group-item"><a href="/health"><i class="fa-solid fa-suitcase-medical"></i> Health</a></li>
-                <li class="list-group-item"><a href="/science"><i class="fa-solid fa-flask-vial"></i> Science</a></li>
-                <li class="list-group-item"><a href="/sports"><i class="fa-solid fa-baseball-bat-ball"></i> Sports</a></li>
-                <li class="list-group-item"><a href="/technology"><i class="fa-solid fa-microchip"></i> Technology</a></li>
-            </ul>
-            <div class="text-center mt-3">
-                {% if user.is_authenticated %}
-                    {% if user.usersubscription.is_subscribed %}
-                        <span class="badge bg-warning text-dark"><i class="fa-solid fa-crown"></i> Premium</span>
-                        <form action="{% url 'unsubscribe' %}" method="POST" class="mt-2">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger w-100">
-                                <i class="fa-solid fa-ban"></i> Unsubscribe
-                            </button>
-                        </form>
-                    {% else %}
-                        <a href="{% url 'subscription_page' %}" class="btn btn-warning w-100">
-                            <i class="fa-solid fa-crown"></i> Subscribe Now
-                        </a>
-                    {% endif %}
-                {% endif %}
-            </div>
-        </div>
+
+  <!-- Sidebar -->
+  <div class="grid-item">
+    <div class="card sticky-top rounded-5 p-3" style="width: 18rem;">
+      <div class="card-header m-2 p-3">
+        <h6 class="text-center">Select a category to explore</h6>
+      </div>
+      <ul class="list-group list-group-flush p-3">
+        <li class="list-group-item"><a href="/business"><i class="fa-solid fa-business-time"></i> Business</a></li>
+        <li class="list-group-item"><a href="/entertainment"><i class="fa-solid fa-globe"></i> Entertainment</a></li>
+        <li class="list-group-item"><a href="/general"><i class="fa-solid fa-earth-americas"></i> General</a></li>
+        <li class="list-group-item"><a href="/health"><i class="fa-solid fa-suitcase-medical"></i> Health</a></li>
+        <li class="list-group-item"><a href="/science"><i class="fa-solid fa-flask-vial"></i> Science</a></li>
+        <li class="list-group-item"><a href="/sports"><i class="fa-solid fa-baseball-bat-ball"></i> Sports</a></li>
+        <li class="list-group-item"><a href="/technology"><i class="fa-solid fa-microchip"></i> Technology</a></li>
+        <li class="list-group-item"><a href="/music"><i class="fa-solid fa-music"></i> Music Recommendation</a></li>
+      </ul>
+      <div class="text-center mt-3">
+        {% if user.is_authenticated %}
+          {% if user.usersubscription.is_subscribed %}
+            <span class="badge bg-warning text-dark"><i class="fa-solid fa-crown"></i> Premium</span>
+            <form action="{% url 'unsubscribe' %}" method="POST" class="mt-2">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger w-100">
+                <i class="fa-solid fa-ban"></i> Unsubscribe
+              </button>
+            </form>
+          {% else %}
+            <a href="{% url 'subscription_page' %}" class="btn btn-warning w-100">
+              <i class="fa-solid fa-crown"></i> Subscribe Now
+            </a>
+          {% endif %}
+        {% endif %}
+      </div>
     </div>
+  </div>
 
-    <!-- Main Content -->
-    <div class="grid-item">
-
-        <!-- Ads -->
-        <h2 class="ad-section-title">Sponsored Ads</h2>
-        <div class="ad-container">
-            {% for ad in ads %}
-            <div class="ad-card">
-                <a href="{{ ad.target_url }}" target="_blank">
-                    <img src="{{ ad.image_url }}" alt="{{ ad.title }}">
-                    <div class="ad-content">
-                        <h3>{{ ad.title }}</h3>
-                        <p>{{ ad.description }}</p>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
+  <!-- Main News Section -->
+  <div class="grid-item">
+    <div class="news-section">
+      <h2 class="ad-section-title text-white">Latest News</h2>
+      {% if articles %}
+        {% for j in articles %}
+        <div class="card news-card my-3">
+          <img src="{{ j.urlToImage|default:'https://via.placeholder.com/300x180?text=No+Image' }}" class="card-img-top" alt="News Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ j.title }}</h5>
+            <p class="card-text">{{ j.description }}</p>
+            <a href="{{ j.url }}" class="btn btn-secondary" target="_blank">
+              Read more <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <p class="card-text mt-2"><small>Published on: {{ j.publishedAt }}</small></p>
+          </div>
         </div>
-
-        <!-- News Articles -->
-        <div class="news-section mt-5">
-            <h2 class="ad-section-title text-white">Latest News</h2>
-
-            {% if articles %}
-                {% for j in articles %}
-                <div class="card news-card my-3">
-                    <img src="{{ j.urlToImage|default:'https://via.placeholder.com/300x180?text=No+Image' }}" class="card-img-top" alt="News Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ j.title }}</h5>
-                        <p class="card-text">{{ j.description }}</p>
-                        <a href="{{ j.url }}" class="btn btn-secondary" target="_blank">
-                            Read more <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <p class="card-text mt-2"><small>Published on: {{ j.publishedAt }}</small></p>
-                    </div>
-                </div>
-                {% endfor %}
-            {% else %}
-                <div class="alert alert-warning text-center mt-4">
-                    <strong>No news articles available.</strong>
-                </div>
-            {% endif %}
+        {% endfor %}
+      {% else %}
+        <div class="alert alert-warning text-center mt-4">
+          <strong>No news articles available.</strong>
         </div>
-
+      {% endif %}
     </div>
+  </div>
+
+  <!-- Sponsored Ads Section -->
+  <div class="grid-item ads-sidebar">
+    <div class="sponsored-ads">
+      <h2>✨ Sponsored Ads</h2>
+      {% for ad in ads %}
+      <div class="ad-card">
+        <a href="{{ ad.target_url }}" target="_blank">
+          <img src="{{ ad.image_url }}" alt="{{ ad.title }}">
+          <div class="ad-content">
+            <h3>{{ ad.title }}</h3>
+            <p>{{ ad.description }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
 
 </body>
