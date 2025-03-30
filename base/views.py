@@ -45,9 +45,11 @@ def category(request,category):
     response = requests.get(url)
     data = response.json()
     articles = data['articles']
+    ads = Advertisement.objects.all()
     context = {
         'category' : category.capitalize,
         'articles' : articles,
+        "ads": ads,
 
     }
     
