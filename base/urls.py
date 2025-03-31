@@ -18,6 +18,7 @@ urlpatterns = [
     path('subscription-success/', subscription_success, name='subscription_success'),
     path('api/advertisements/', advertisement_list, name='advertisement-list'),
     path("music/", music_recommendations, name="music"),
+    path("movie-dialogue/", views.movie_dialogue, name="movie_dialogue"),
     path('',views.home,name="home"),
     path('<str:category>/',views.category,name="category"),   
 ]

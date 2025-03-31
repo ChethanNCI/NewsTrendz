@@ -199,7 +199,8 @@
         <li class="list-group-item"><a href="/science"><i class="fa-solid fa-flask-vial"></i> Science</a></li>
         <li class="list-group-item"><a href="/sports"><i class="fa-solid fa-baseball-bat-ball"></i> Sports</a></li>
         <li class="list-group-item"><a href="/technology"><i class="fa-solid fa-microchip"></i> Technology</a></li>
-        <li class="list-group-item"><a href="/music"><i class="fa-solid fa-music"></i> Music Recommendation</a></li>
+        <li class="list-group-item"><a href="/music"><i class="fa-solid fa-music"></i> Top Songs of the Day</a></li>
+        <li class="list-group-item"><a href="{% url 'movie_dialogue' %}"><i class="fa-solid fa-film"></i> Dialogue of the Day</a></li>
       </ul>
       <div class="text-center mt-3">
         {% if user.is_authenticated %}

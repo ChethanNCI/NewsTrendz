@@ -190,3 +190,8 @@ def music_recommendations(request):
     songs = response.json()
     return render(request, "base/music.html", {"songs": songs})
 
+def movie_dialogue(request):
+    response = requests.get("http://bookmyticket.eba-z2bpzzqf.eu-west-1.elasticbeanstalk.com/api/movie_dialogues/")
+    dialogue_data = response.json()
+    return render(request, "base/movie_dialogue.html", {"dialogue": dialogue_data})
+
